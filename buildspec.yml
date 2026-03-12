@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "INSTALL phase started"
+      - python --version
+
+  pre_build:
+    commands:
+      - echo "PRE_BUILD phase started"
+      - echo "Preparing build environment"
+
+  build:
+    commands:
+      - echo "BUILD phase started"
+      - echo "Hello from CodeBuild" > output.txt
+      - cat output.txt
+
+  post_build:
+    commands:
+      - echo "POST_BUILD phase started"
+      - echo "Build completed successfully"
+
+artifacts:
+  files:
+    - output.txt
